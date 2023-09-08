@@ -7,7 +7,6 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   const { data: session } = useSession();
-
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
@@ -87,6 +86,7 @@ const Nav = () => {
 
             {toggleDropdown && (
               <div className='dropdown'>
+
                 <Link
                   href='/profile'
                   className='dropdown_link'
@@ -94,6 +94,7 @@ const Nav = () => {
                 >
                   My Profile
                 </Link>
+
                 <Link
                   href='/create-post'
                   className='dropdown_link'
@@ -101,6 +102,7 @@ const Nav = () => {
                 >
                   Create Prompt
                 </Link>
+
                 <button
                   type='button'
                   onClick={() => {
@@ -111,6 +113,7 @@ const Nav = () => {
                 >
                   Sign Out
                 </button>
+                
               </div>
             )}
           </div>
