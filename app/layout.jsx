@@ -5,8 +5,9 @@ import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 
 export const metadata = {
-  title : "Promptopia",
-  discription: 'Discover & Share AI Prompts'
+  title : "Prompt Share",
+  discription: 'Discover & Share AI Prompts',
+  image : '/assets/images/logo.svg',
 }
 const RootLayout = ({children}) => {
   return (
@@ -14,12 +15,13 @@ const RootLayout = ({children}) => {
        <body>
        <Provider>
          <div className='main'>
-          <div className='gradient'/>
-         </div>
-         <main className='app'>
-         <Nav/>
-          {children}
-         </main>
+            <div className='gradient'/>
+          </div>
+          <main className='app'>
+            {/* {children} */}
+            <Nav/>
+            {children}
+          </main>
         </Provider>
        </body>
     </html>

@@ -32,7 +32,9 @@ const Nav = () => {
 
       {/* Desktop Navigation */}
       <div className='sm:flex hidden'>
-        {session?.user ? (
+        {session?.user ? 
+        // if user exist show sign out and create post options and profile picture
+        (
           <div className='flex gap-3 md:gap-5'>
             <Link href='/create-post' className='black_btn'>
               Create Post
@@ -45,17 +47,18 @@ const Nav = () => {
             <Link href='/profile'>
               <Image
                 src={session?.user.image}
-                width={37}
-                height={37}
+                width={40}
+                height={40}
                 className='rounded-full'
                 alt='profile'
               />
             </Link>
           </div>
-        ) : (
+        ) : 
+        // if user does not exist show sign in option
+        (
           <>
-            {providers &&
-              Object.values(providers).map((provider) => (
+            {providers && Object.values(providers).map((provider) => (
                 <button
                   type='button'
                   key={provider.name}
@@ -73,7 +76,9 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       <div className='sm:hidden flex relative'>
-        {session?.user ? (
+        {session?.user ? 
+         // if user exist show sign out, create post options and profile picture
+        (
           <div className='flex'>
             <Image
               src={session?.user.image}
@@ -83,7 +88,7 @@ const Nav = () => {
               alt='profile'
               onClick={() => setToggleDropdown(!toggleDropdown)}
             />
-
+            
             {toggleDropdown && (
               <div className='dropdown'>
 
@@ -113,7 +118,7 @@ const Nav = () => {
                 >
                   Sign Out
                 </button>
-                
+
               </div>
             )}
           </div>
